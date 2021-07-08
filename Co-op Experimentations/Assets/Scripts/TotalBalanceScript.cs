@@ -8,6 +8,6 @@ public class TotalBalanceScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TotalBalance.text = GameObject.Find("Collector").GetComponent<CollectorScript>().totalBalance.ToString();
+        TotalBalance.text = GameObject.Find("LemonadeCollector").GetComponent<CollectorScript>().totalBalance.ToString();
     }
 }

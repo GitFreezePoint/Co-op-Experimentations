@@ -1,13 +1,22 @@
+using System.Collections;
 using UnityEngine;
 
 public class CollectorScript : MonoBehaviour
 {
     public float totalBalance = 0f;
-    float additiveValue = 1f;
-    public float lemonBonus = 1f;
+    bool CanPress = true;
+    public float cooldownTime = 1f;
+    float nextClickTime = 0f;
     
-    public void OnClick() 
+    public void OnClick()
     {
-        totalBalance += additiveValue *= lemonBonus;
+        if(Time.time > nextClickTime) {
+            ExecuteClick();
+        }
+    }
+    void ExecuteClick()
+    {
+        totalBalance++;
+        nextClickTime = Time.time + cooldownTime;
     }
 }

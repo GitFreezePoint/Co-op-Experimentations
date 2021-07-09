@@ -4,10 +4,12 @@ using UnityEngine.UI;
 public class TotalBalanceScript : MonoBehaviour
 {
     public Text TotalBalance;
+    string lemonadeMoney;
     
     // Update is called once per frame
     void Update()
     {
-        TotalBalance.text = GameObject.Find("LemonadeCollector").GetComponent<CollectorScript>().totalBalance.ToString();
+        lemonadeMoney = GameObject.Find("LemonadeCollector").GetComponent<CollectorScript>().totalBalance.ToString();
+        TotalBalance.text = lemonadeMoney;
     }
 }

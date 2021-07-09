@@ -5,10 +5,9 @@ using UnityEngine.UI;
 public class CollectorScript : MonoBehaviour
 {
     public float totalBalance = 0f;
-    bool CanPress = true;
     float nextClickTime = 0f;
     public Slider ProgressSlider;
-    public bool givenMoney = false;
+    public bool givenMoney = true;
     private float timerSpeed = 1f;
     private float elapsed;
     public class CountingTimer : MonoBehaviour { }
@@ -31,8 +30,8 @@ public class CollectorScript : MonoBehaviour
             elapsed = 0f;
         }
 
-        ProgressSlider.value = elapsed;
-        ProgressSlider.maxValue = timerSpeed;
+        ProgressSlider.value = elapsed / timerSpeed;
+        //ProgressSlider.maxValue = timerSpeed;
 
     }
 

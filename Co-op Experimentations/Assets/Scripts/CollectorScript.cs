@@ -6,7 +6,6 @@ public class CollectorScript : MonoBehaviour
 {
     public float totalBalance = 0f;
     bool CanPress = true;
-    public float cooldownTime = 1f;
     float nextClickTime = 0f;
     public Slider ProgressSlider;
     public bool givenMoney = false;
@@ -25,12 +24,10 @@ public class CollectorScript : MonoBehaviour
         }
 
         //write code here corbiee worbieeee
-        if (givenMoney==false)
+        if (givenMoney==false) {   
             elapsed += Time.deltaTime;
-
-
-        if (elapsed >= timerSpeed)
-        {
+        }
+        if (elapsed >= timerSpeed) {
             elapsed = 0f;
         }
 
@@ -43,23 +40,14 @@ public class CollectorScript : MonoBehaviour
     {
         if (Time.time > nextClickTime)
         {
-            ExecuteClick();
+            nextClickTime = Time.time + timerSpeed;
+            givenMoney = false;
         }
     }
-
-    void ExecuteClick()
-    {
-        //totalBalance++;
-        nextClickTime = Time.time + cooldownTime;
-        givenMoney = false;
-
-    }  
-
     public void Upgrade() 
     {
-        if(timerSpeed > .05f) {
+        if(timerSpeed > .1f) {
             timerSpeed -= .05f;
-            cooldownTime -= .05f;
         }
     }
 }

@@ -35,6 +35,7 @@ public class CollectorScript : MonoBehaviour
         }
 
         ProgressSlider.value = elapsed;
+        ProgressSlider.maxValue = timerSpeed;
 
     }
 
@@ -48,9 +49,17 @@ public class CollectorScript : MonoBehaviour
 
     void ExecuteClick()
     {
-            //totalBalance++;
-            nextClickTime = Time.time + cooldownTime;
-            givenMoney = false;
+        //totalBalance++;
+        nextClickTime = Time.time + cooldownTime;
+        givenMoney = false;
 
     }  
+
+    public void Upgrade() 
+    {
+        if(timerSpeed > .05f) {
+            timerSpeed -= .05f;
+            cooldownTime -= .05f;
+        }
+    }
 }
